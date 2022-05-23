@@ -2,10 +2,17 @@ package com.alphaspark.projectalphaspark.Entities;
 
 import com.alphaspark.projectalphaspark.Enums.Authority;
 
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@DiscriminatorValue("Client")
 public class Client extends User{
+  @ManyToMany(cascade = CascadeType.ALL)
     // Fields
     private List<Proposal> proposals;
 
