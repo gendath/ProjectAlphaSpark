@@ -2,15 +2,23 @@ package com.alphaspark.projectalphaspark.Entities;
 
 import com.alphaspark.projectalphaspark.Enums.Authority;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_class", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("null")
 public class User {
     // Fields
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id = 0L;
     protected String userName;
     private String password;
     protected Authority authorityLvl;
+
+     @ManyToMany(cascade = CascadeType.ALL)
     protected final List<Project> projects;
 
 
