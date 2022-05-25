@@ -13,7 +13,7 @@ public class User {
     // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id = 0L;
+    private Long id;
     protected String userName;
     private String password;
     protected Authority authorityLvl;
@@ -23,7 +23,6 @@ public class User {
 
 
     // Constructors
-
     public User() {
         authorityLvl = Authority.MINIMUM;
         userName = null;

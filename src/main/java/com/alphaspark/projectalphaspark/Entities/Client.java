@@ -12,8 +12,8 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("Client")
 public class Client extends User{
-  @ManyToMany(cascade = CascadeType.ALL)
     // Fields
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Proposal> proposals;
 
 

@@ -7,14 +7,13 @@ import javax.persistence.Id;
 
 @Entity
 public class Proposal {
+    // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-
-    // Fields
     private Long id;
 
     private String name;
 
-// TODO Need ideas how to use front end design and form to contact us with project proposal
+    // TODO Need ideas how to use front end design and form to contact us with project proposal
 
 }
