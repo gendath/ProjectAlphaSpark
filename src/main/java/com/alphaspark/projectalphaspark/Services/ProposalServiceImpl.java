@@ -1,12 +1,14 @@
 package com.alphaspark.projectalphaspark.Services;
 
 import com.alphaspark.projectalphaspark.Entities.Proposal;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProposalServiceImpl implements ProposalService{
     @Override
-    public boolean addPropsal() {
+    public boolean addProposal() {
         return false;
     }
 

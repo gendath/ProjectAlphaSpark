@@ -2,24 +2,18 @@ package com.alphaspark.projectalphaspark.Entities;
 
 import com.alphaspark.projectalphaspark.Enums.Authority;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "user_class", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("null")
+//@Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "user_class", discriminatorType = DiscriminatorType.STRING)
+//@DiscriminatorValue("null")
 public class User {
     // Fields
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+
     protected String userName;
     private String password;
-    protected Authority authorityLvl;
+    Authority authorityLvl;
 
-     @ManyToMany(cascade = CascadeType.ALL)
-    protected final List<Project> projects;
+
 
 
     // Constructors
@@ -27,7 +21,6 @@ public class User {
         authorityLvl = Authority.MINIMUM;
         userName = null;
         password = null;
-        projects = new ArrayList<>();
     }
 
     public User(String userName, String password) {
@@ -36,26 +29,21 @@ public class User {
         this.password = password;
     }
 
-    @Override
-    public int hashCode() {
-        return getId().intValue();
-    }
+//    @Override
+//    public int hashCode() {
+//        return getId().intValue();
+//    }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof User u) return u.getId().longValue() == this.getId().longValue();
-        return false;
+//        if (obj instanceof User u) return u.getId().longValue() == this.getId().longValue();
+//        return false;
+        return true;
     }
 
     // Getters and Setters
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;
@@ -81,16 +69,7 @@ public class User {
         this.authorityLvl = authorityLvl;
     }
 
-    public List<Project> getProjects() {
-        return projects;
-    }
 
-    public void addProjects(Project project) {
-        this.projects.add(project);
-    }
 
-    public void removeProject(Project project) {
-        this.projects.remove(project);
-    }
 
 }

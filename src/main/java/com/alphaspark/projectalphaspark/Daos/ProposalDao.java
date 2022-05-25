@@ -1,10 +1,10 @@
 package com.alphaspark.projectalphaspark.Daos;
 
+import com.alphaspark.projectalphaspark.Entities.Proposal;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface ProposalDao extends JpaRepository<ProposalDao, Long> {
+//@Repository
+public interface ProposalDao extends JpaRepository<Proposal, Long> {
 
 
 }

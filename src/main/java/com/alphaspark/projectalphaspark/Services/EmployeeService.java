@@ -1,20 +1,21 @@
 package com.alphaspark.projectalphaspark.Services;
 
+import com.alphaspark.projectalphaspark.Entities.Employee;
 import com.alphaspark.projectalphaspark.Entities.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public interface UserService {
+public interface EmployeeService {
 
-    List<User> getAllUsers();
+    List<Employee> getAllUsers();
 
     User getUser(Long id);
 
     User getUser(String username);
 
-    boolean addUser(User user, HttpServletRequest request, HttpServletResponse response);
+    boolean addUser(Employee user, HttpServletRequest request, HttpServletResponse response);
 
     boolean updateUser(User user);
 

@@ -7,7 +7,7 @@ import java.util.List;
 public interface ProposalService {
 
     // Create functions
-    boolean addPropsal();
+    boolean addProposal();
 
     // Read functions
     Proposal getProposal(Long proposalId);

@@ -1,9 +1,8 @@
 package com.alphaspark.projectalphaspark.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Proposal {
@@ -13,6 +12,9 @@ public class Proposal {
     private Long id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "proposals")
+    private final Set<Client> clients = new HashSet<>();
 
     // TODO Need ideas how to use front end design and form to contact us with project proposal
 

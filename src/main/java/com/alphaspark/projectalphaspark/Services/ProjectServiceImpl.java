@@ -1,9 +1,10 @@
 package com.alphaspark.projectalphaspark.Services;
 
 import com.alphaspark.projectalphaspark.Entities.Project;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ProjectServiceImpl implements ProjectService{
     @Override
     public boolean addProject() {
