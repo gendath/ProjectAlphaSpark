@@ -2,17 +2,12 @@ package com.alphaspark.projectalphaspark.Entities;
 
 import com.alphaspark.projectalphaspark.Enums.Authority;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-//@DiscriminatorValue("Employee")
-public class Employee extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+@DiscriminatorValue("Employee")
+public class Employee extends BaseUser {
 
     private Long employeeNum;
 

@@ -7,11 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-//@DiscriminatorValue("Client")
-public class Client extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+@DiscriminatorValue("Client")
+public class Client extends BaseUser {
     // Fields
     @ManyToMany
     @JoinTable(name = "proposal_clients", joinColumns = @JoinColumn(name="client_id"), inverseJoinColumns = @JoinColumn(name = "proposal_id"))
@@ -47,12 +44,4 @@ public class Client extends User{
     public void removeProject(Project project) {
         this.projects.remove(project);
     }
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
 }
