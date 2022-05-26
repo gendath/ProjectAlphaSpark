@@ -16,6 +16,10 @@ public class Proposal {
     @ManyToMany(mappedBy = "proposals")
     private final Set<Client> clients = new HashSet<>();
 
+    public Long getId() {
+        return this.id;
+    }
+
     // TODO Need ideas how to use front end design and form to contact us with project proposal
 
 }

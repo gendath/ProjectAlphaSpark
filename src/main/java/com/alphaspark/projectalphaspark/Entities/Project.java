@@ -17,6 +17,10 @@ public class Project {
     @ManyToMany(mappedBy = "projects")
     private final Set<Client> clients = new HashSet<>();
 
+    public Long getId() {
+        return id;
+    }
+
     // TODO Find a way perhaps to add a comment section for each individual project and for clients to make a proposal to
     //  add or remove features - proposal should also have a comment section for conversation between employees and clients.
 

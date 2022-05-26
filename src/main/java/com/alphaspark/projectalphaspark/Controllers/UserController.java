@@ -31,16 +31,12 @@ public class UserController {
     //read one
     @GetMapping("/{userID}")
     public BaseUser displaySingleUser(@PathVariable Long userID){
-
         return userService.getUser(userID);
-
-
     }
+
     //update
     @PutMapping("/update")
     public boolean updateUser(@RequestBody BaseUser user){
-
-
         return userService.updateUser(user);
     }
 
