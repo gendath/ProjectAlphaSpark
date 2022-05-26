@@ -9,7 +9,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "user_class", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("null")
-public class User {
+public class BaseUser {
     // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,14 +23,14 @@ public class User {
 
 
     // Constructors
-    public User() {
+    public BaseUser() {
         authorityLvl = Authority.MINIMUM;
         userName = null;
         password = null;
         projects = new ArrayList<>();
     }
 
-    public User(String userName, String password) {
+    public BaseUser(String userName, String password) {
         this();
         this.userName = userName;
         this.password = password;
@@ -43,7 +43,10 @@ public class User {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof User u) return u.getId().longValue() == this.getId().longValue();
+        if (obj instanceof BaseUser) {
+            BaseUser u = (BaseUser) obj;
+            return u.getId().longValue() == this.getId().longValue();
+        }
         return false;
     }
 

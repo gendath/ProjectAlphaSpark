@@ -1,12 +1,11 @@
 package com.alphaspark.projectalphaspark.Services;
 
 import com.alphaspark.projectalphaspark.Daos.UserDao;
-import com.alphaspark.projectalphaspark.Entities.User;
+import com.alphaspark.projectalphaspark.Entities.BaseUser;
 import com.alphaspark.projectalphaspark.Enums.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,22 +19,22 @@ public class UserServiceImpl implements UserService{
     UserDao userdao;
 
     @Override
-    public List<User> getAllUsers() {
+    public List<BaseUser> getAllUsers() {
         return userdao.findAll();
     }
 
     @Override
-    public User getUser(Long id) {
+    public BaseUser getUser(Long id) {
         return userdao.findById(id).orElse(null);
     }
 
     @Override
-    public User getUser(String username) {
+    public BaseUser getUser(String username) {
         return userdao.findUserByUserNameIgnoreCase(username).orElse(null);
     }
 
     @Override
-    public boolean addUser(User user, HttpServletRequest request, HttpServletResponse response) {
+    public boolean addUser(BaseUser user, HttpServletRequest request, HttpServletResponse response) {
         PrintWriter writer;
         try {
             writer = response.getWriter();
@@ -52,7 +51,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean updateUser(User user) {
+    public boolean updateUser(BaseUser user) {
         userdao.save(user);
 
         return true;
@@ -76,7 +75,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User logIn(User user, HttpServletRequest request, HttpServletResponse response) {
+    public BaseUser logIn(BaseUser user, HttpServletRequest request, HttpServletResponse response) {
         logOut(request);
         var userObj = userdao.findUserByUserNameIgnoreCaseAndPassword(user.getUserName(), user.getPassword());
 
@@ -91,7 +90,7 @@ public class UserServiceImpl implements UserService{
         } catch (Exception e) {
 
         }
-        User current = new User();
+        BaseUser current = new BaseUser();
         current.setUserName(user.getUserName());
         return current;
     }

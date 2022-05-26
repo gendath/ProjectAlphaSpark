@@ -1,18 +1,17 @@
 package com.alphaspark.projectalphaspark.Daos;
 
-import com.alphaspark.projectalphaspark.Entities.User;
+import com.alphaspark.projectalphaspark.Entities.BaseUser;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
 
-public interface UserDao extends JpaRepository<User, Long> {
+public interface UserDao extends JpaRepository<BaseUser, Long> {
 
-    Optional<User> findUserByUserNameIgnoreCase(String username);
-    Optional<User> findUserByUserNameIgnoreCaseAndPassword(String username, String password);
+    Optional<BaseUser> findUserByUserNameIgnoreCase(String username);
+    Optional<BaseUser> findUserByUserNameIgnoreCaseAndPassword(String username, String password);
 
 
 }
