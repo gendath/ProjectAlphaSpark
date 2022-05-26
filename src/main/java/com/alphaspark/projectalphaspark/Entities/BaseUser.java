@@ -18,16 +18,11 @@ public class BaseUser {
     private String password;
     protected Authority authorityLvl;
 
-     @ManyToMany(cascade = CascadeType.ALL)
-    protected final List<Project> projects;
-
-
     // Constructors
     public BaseUser() {
         authorityLvl = Authority.MINIMUM;
         userName = null;
         password = null;
-        projects = new ArrayList<>();
     }
 
     public BaseUser(String userName, String password) {
@@ -82,18 +77,6 @@ public class BaseUser {
 
     public void setAccessLvl(Authority authorityLvl) {
         this.authorityLvl = authorityLvl;
-    }
-
-    public List<Project> getProjects() {
-        return projects;
-    }
-
-    public void addProjects(Project project) {
-        this.projects.add(project);
-    }
-
-    public void removeProject(Project project) {
-        this.projects.remove(project);
     }
 
 }
