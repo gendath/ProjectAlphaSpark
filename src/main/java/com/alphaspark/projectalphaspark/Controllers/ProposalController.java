@@ -19,7 +19,7 @@ public class ProposalController {
 
     //create
     @PostMapping("/new")
-    public String createProposal() {
+    public String createProposal(@RequestBody Proposal proposal) {
         return null;
     }
 

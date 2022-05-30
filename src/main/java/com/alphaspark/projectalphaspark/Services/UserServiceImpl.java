@@ -2,6 +2,8 @@ package com.alphaspark.projectalphaspark.Services;
 
 import com.alphaspark.projectalphaspark.Daos.UserDao;
 import com.alphaspark.projectalphaspark.Entities.BaseUser;
+import com.alphaspark.projectalphaspark.Entities.Client;
+import com.alphaspark.projectalphaspark.Entities.Employee;
 import com.alphaspark.projectalphaspark.Enums.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -21,6 +25,18 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<BaseUser> getAllUsers() {
         return userdao.findAll();
+    }
+
+    @Override
+    public List<Client> getAllClients() {
+        return userdao.findClientBy();
+//        return userdao.findAll().stream().map(x -> (x instanceof Client)?(Client)x:null)
+//                .filter(Objects::nonNull).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return userdao.findEmployeeBy();
     }
 
     @Override

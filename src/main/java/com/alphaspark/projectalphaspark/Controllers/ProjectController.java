@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/projects")
 public class ProjectController {
     private final ProjectService projectService;
     public ProjectController(ProjectService projectService) {
@@ -17,7 +17,7 @@ public class ProjectController {
 
     //create
     @PostMapping("/new")
-    public String createProject(){
+    public String createProject(@RequestBody Project project){
         return null;
     }
 
