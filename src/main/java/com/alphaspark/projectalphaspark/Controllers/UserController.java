@@ -1,6 +1,8 @@
 package com.alphaspark.projectalphaspark.Controllers;
 
 import com.alphaspark.projectalphaspark.Entities.BaseUser;
+import com.alphaspark.projectalphaspark.Entities.Client;
+import com.alphaspark.projectalphaspark.Entities.Employee;
 import com.alphaspark.projectalphaspark.Services.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +20,7 @@ public class UserController {
 
     //create
     @PostMapping("/new")
-    public String createUser(){
+    public String createUser(@RequestBody BaseUser baseUser){
         return null;
     }
 
@@ -26,6 +28,14 @@ public class UserController {
     @GetMapping({"/", ""})
     public List<BaseUser> listAllUsers(){
         return userService.getAllUsers();
+    }
+
+    public List<Client> listAllClients() {
+        return userService.getAllClients();
+    }
+
+    public List<Employee> listAllEmpoyees() {
+        return userService.getAllEmployees();
     }
 
     //read one

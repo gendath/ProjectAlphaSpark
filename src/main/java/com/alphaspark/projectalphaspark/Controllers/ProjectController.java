@@ -16,7 +16,7 @@ public class ProjectController {
 
     //create
     @PostMapping("/new")
-    public String createProject(){
+    public String createProject(@RequestBody Project project){
         return null;
     }
 
