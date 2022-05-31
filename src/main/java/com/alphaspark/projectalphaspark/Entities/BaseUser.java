@@ -3,14 +3,15 @@ package com.alphaspark.projectalphaspark.Entities;
 import com.alphaspark.projectalphaspark.Enums.Authority;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "user_class", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("null")
 public class BaseUser {
     // Fields
+
+    // TODO: 5/31/2022 Add fields for address1,address2,city,state,zipcode,country, home,work,cell, comments (make new entity)
+    // TODO: 5/31/2022 research best method of i18n
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
