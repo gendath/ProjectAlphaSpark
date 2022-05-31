@@ -16,7 +16,7 @@ public class ProjectController {
 
     //create
     @PostMapping("/new")
-    public String createProject(){
+    public String createProject(@RequestBody Project project){
         return null;
     }
 
@@ -34,7 +34,7 @@ public class ProjectController {
 
     //update
     @PutMapping("/update")
-    public boolean updateProject(@RequestBody Project project){
+    public Project updateProject(@RequestBody Project project){
         return projectService.updateProject(project);
     }
 

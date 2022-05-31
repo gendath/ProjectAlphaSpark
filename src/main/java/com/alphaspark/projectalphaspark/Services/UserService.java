@@ -1,6 +1,8 @@
 package com.alphaspark.projectalphaspark.Services;
 
 import com.alphaspark.projectalphaspark.Entities.BaseUser;
+import com.alphaspark.projectalphaspark.Entities.Client;
+import com.alphaspark.projectalphaspark.Entities.Employee;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +11,10 @@ import java.util.List;
 public interface UserService {
 
     List<BaseUser> getAllUsers();
+
+    List<Client> getAllClients();
+
+    List<Employee> getAllEmployees();
 
     BaseUser getUser(Long id);
 
