@@ -20,6 +20,7 @@ public interface UserDao extends JpaRepository<BaseUser, Long> {
     List<Employee> findEmployeeBy();
     Optional<Client> findClientByUserName(String username);
     Optional<Employee> findEmployeeByUserName(String username);
+
 //    @Query("SELECT u FROM BaseUser u WHERE u.user_class = Client")
 //    List<Client> getAllClients();
 //    @Query("SELECT u FROM BaseUser u WHERE u.user_class = Employee")

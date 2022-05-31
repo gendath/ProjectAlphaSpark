@@ -6,6 +6,8 @@ import com.alphaspark.projectalphaspark.Entities.Employee;
 import com.alphaspark.projectalphaspark.Services.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -34,7 +36,7 @@ public class UserController {
         return userService.getAllClients();
     }
 
-    public List<Employee> listAllEmpoyees() {
+    public List<Employee> listAllEmployees() {
         return userService.getAllEmployees();
     }
 
@@ -54,6 +56,11 @@ public class UserController {
     @DeleteMapping("/delete")
     public boolean deleteUser(@RequestBody BaseUser user){
         return userService.deleteUser(user.getId());
+    }
+
+    @PostMapping("/login")
+    public void loginUser(@RequestBody BaseUser user, HttpServletRequest request, HttpServletResponse response) {
+        userService.logIn(user, request, response);
     }
 
 }
