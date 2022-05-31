@@ -6,6 +6,7 @@ import java.util.Set;
 
 @Entity
 public class Proposal {
+    // TODO: 5/31/2022 devNotes,salesNotes, projectDetails, proposedCompletionDate, dateSubmitted, dateApproved, finalAgreement, comments (make new entity)
     // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -1,6 +1,5 @@
 package com.alphaspark.projectalphaspark.Controllers;
 
-import com.alphaspark.projectalphaspark.Entities.BaseUser;
 import com.alphaspark.projectalphaspark.Entities.Project;
 import com.alphaspark.projectalphaspark.Services.ProjectService;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/projects")
 public class ProjectController {
     private final ProjectService projectService;
     public ProjectController(ProjectService projectService) {

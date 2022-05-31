@@ -6,6 +6,8 @@ import java.util.Set;
 
 @Entity
 public class Project {
+
+    // TODO: 5/31/2022 add fields:  comments (make new entity), projectDetails, devNotes, salesNotes, promisedCompletionDate, projectedCompletionDate, milestones (Entity) , totalCost, hostingPackage (Entity), paidToDate,pointOfContact, status, contract
     // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -24,6 +26,5 @@ public class Project {
     // TODO Find a way perhaps to add a comment section for each individual project and for clients to make a proposal to
     //  add or remove features - proposal should also have a comment section for conversation between employees and clients.
 
-    // TODO @ManyToMany(cascade = ??) Help us Perry can not figure out how to safely ignore the json
 
 }
