@@ -1,6 +1,5 @@
 package com.alphaspark.projectalphaspark.Controllers;
 
-import com.alphaspark.projectalphaspark.Entities.BaseUser;
 import com.alphaspark.projectalphaspark.Entities.Project;
 import com.alphaspark.projectalphaspark.Services.ProjectService;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +34,7 @@ public class ProjectController {
 
     //update
     @PutMapping("/update")
-    public boolean updateProject(@RequestBody Project project){
+    public Project updateProject(@RequestBody Project project){
         return projectService.updateProject(project);
     }
 

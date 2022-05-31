@@ -9,6 +9,8 @@ import java.util.Set;
 @Entity
 @DiscriminatorValue("Client")
 public class Client extends BaseUser {
+
+    // TODO: 5/31/2022 add fields :  lastVisited, lastContact, bestContactTimes, devNotes, salesNotes
     // Fields
     @ManyToMany
     @JoinTable(name = "proposal_clients", joinColumns = @JoinColumn(name="client_id"), inverseJoinColumns = @JoinColumn(name = "proposal_id"))

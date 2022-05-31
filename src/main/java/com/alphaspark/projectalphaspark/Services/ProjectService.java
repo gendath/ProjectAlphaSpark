@@ -7,7 +7,7 @@ import java.util.List;
 public interface ProjectService {
 
     // Create functions
-    boolean addProject();
+    Project addProject(Project project);
 
     // Read functions
     Project getProject(Long projectId);
@@ -17,7 +17,7 @@ public interface ProjectService {
     List<Project> getClientProjects(Long clientId);
 
     // Update functions
-    boolean updateProject(Project project);
+    Project updateProject(Project project);
 
     // Delete functions
     boolean deleteProject(Long projectId);

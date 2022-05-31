@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Employee")
 public class Employee extends BaseUser {
 
+    // TODO: 5/31/2022 add fields: Projects
+    // TODO: 5/31/2022 make sales/dev sub Entities 
+
     private Long employeeNum;
 
     public Employee() {

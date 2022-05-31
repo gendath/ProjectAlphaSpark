@@ -6,12 +6,14 @@ import java.util.Set;
 
 @Entity
 public class Proposal {
+    // TODO: 5/31/2022 devNotes,salesNotes, projectDetails, proposedCompletionDate, dateSubmitted, dateApproved, approvedBy, finalAgreement, comments (make new entity)
     // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
+
 
     @ManyToMany(mappedBy = "proposals")
     private final Set<Client> clients = new HashSet<>();
