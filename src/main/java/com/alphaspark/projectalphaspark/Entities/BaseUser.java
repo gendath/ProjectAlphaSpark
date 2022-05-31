@@ -13,7 +13,7 @@ public class BaseUser {
     // TODO: 5/31/2022 Add fields for address1,address2,city,state,zipcode,country, home,work,cell, comments (make new entity)
     // TODO: 5/31/2022 research best method of i18n
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     protected String userName;
     private String password;
