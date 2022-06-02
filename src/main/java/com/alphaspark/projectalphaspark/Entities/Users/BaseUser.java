@@ -1,5 +1,6 @@
-package com.alphaspark.projectalphaspark.Entities;
+package com.alphaspark.projectalphaspark.Entities.Users;
 
+import com.alphaspark.projectalphaspark.Entities.Commentable;
 import com.alphaspark.projectalphaspark.Enums.Authority;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "user_class", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("null")
-public class BaseUser {
+public class BaseUser implements Commentable {
     // Fields
 
     // TODO: 5/31/2022 Add fields for address1,address2,city,state,zipcode,country, home,work,cell, comments (make new entity)

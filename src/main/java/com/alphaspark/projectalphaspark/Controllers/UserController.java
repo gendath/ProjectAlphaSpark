@@ -1,8 +1,8 @@
 package com.alphaspark.projectalphaspark.Controllers;
 
-import com.alphaspark.projectalphaspark.Entities.BaseUser;
-import com.alphaspark.projectalphaspark.Entities.Client;
-import com.alphaspark.projectalphaspark.Entities.Employee;
+import com.alphaspark.projectalphaspark.Entities.Users.BaseUser;
+import com.alphaspark.projectalphaspark.Entities.Users.Client;
+import com.alphaspark.projectalphaspark.Entities.Users.Employee;
 import com.alphaspark.projectalphaspark.Services.UserService;
 import org.springframework.web.bind.annotation.*;
 

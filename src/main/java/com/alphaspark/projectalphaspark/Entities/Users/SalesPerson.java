@@ -1,4 +1,4 @@
-package com.alphaspark.projectalphaspark.Entities;
+package com.alphaspark.projectalphaspark.Entities.Users;
 
 
 import javax.persistence.DiscriminatorValue;

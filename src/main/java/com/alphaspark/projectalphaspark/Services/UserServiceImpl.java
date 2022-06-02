@@ -1,9 +1,7 @@
 package com.alphaspark.projectalphaspark.Services;
 
 import com.alphaspark.projectalphaspark.Daos.UserDao;
-import com.alphaspark.projectalphaspark.Entities.BaseUser;
-import com.alphaspark.projectalphaspark.Entities.Client;
-import com.alphaspark.projectalphaspark.Entities.Employee;
+import com.alphaspark.projectalphaspark.Entities.Users.*;
 import com.alphaspark.projectalphaspark.Enums.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +33,16 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<Employee> getAllEmployees() {
         return userDao.findEmployeeBy();
+    }
+
+    @Override
+    public List<Developer> getAllDevelopers() {
+        return userDao.findDeveloperBy();
+    }
+
+    @Override
+    public List<SalesPerson> getAllSales() {
+        return userDao.findSalesPersonBy();
     }
 
     @Override

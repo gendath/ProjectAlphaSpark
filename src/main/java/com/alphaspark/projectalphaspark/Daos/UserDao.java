@@ -1,16 +1,10 @@
 package com.alphaspark.projectalphaspark.Daos;
 
-import com.alphaspark.projectalphaspark.Entities.BaseUser;
-import com.alphaspark.projectalphaspark.Entities.Client;
-import com.alphaspark.projectalphaspark.Entities.Employee;
+import com.alphaspark.projectalphaspark.Entities.Users.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
-
-@Repository
-
-
 
 public interface UserDao extends JpaRepository<BaseUser, Long> {
     Optional<BaseUser> findUserByUserNameIgnoreCase(String username);
@@ -18,6 +12,8 @@ public interface UserDao extends JpaRepository<BaseUser, Long> {
     Long deleteUserByUserNameIgnoreCase(String username);
     List<Client> findClientBy();
     List<Employee> findEmployeeBy();
+    List<Developer> findDeveloperBy();
+    List<SalesPerson> findSalesPersonBy();
     Optional<Client> findClientByUserName(String username);
     Optional<Employee> findEmployeeByUserName(String username);
 

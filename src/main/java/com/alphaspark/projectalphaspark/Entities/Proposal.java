@@ -1,5 +1,7 @@
 package com.alphaspark.projectalphaspark.Entities;
 
+import com.alphaspark.projectalphaspark.Entities.Users.Client;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;

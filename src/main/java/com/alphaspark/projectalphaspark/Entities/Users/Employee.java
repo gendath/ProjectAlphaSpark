@@ -1,5 +1,6 @@
-package com.alphaspark.projectalphaspark.Entities;
+package com.alphaspark.projectalphaspark.Entities.Users;
 
+import com.alphaspark.projectalphaspark.Entities.Users.BaseUser;
 import com.alphaspark.projectalphaspark.Enums.Authority;
 
 import javax.persistence.DiscriminatorValue;

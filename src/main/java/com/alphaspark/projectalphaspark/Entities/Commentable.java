@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface Commentable {
 
-
-
      List<Comment> comments = new ArrayList<>();
 }

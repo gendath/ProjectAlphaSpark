@@ -1,9 +1,7 @@
 package com.alphaspark.projectalphaspark.Controllers;
 
-import com.alphaspark.projectalphaspark.Entities.BaseUser;
 import com.alphaspark.projectalphaspark.Entities.Proposal;
 import com.alphaspark.projectalphaspark.Services.ProposalService;
-import com.alphaspark.projectalphaspark.Services.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
