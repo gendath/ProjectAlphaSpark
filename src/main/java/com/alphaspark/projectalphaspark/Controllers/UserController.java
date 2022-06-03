@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -22,8 +23,8 @@ public class UserController {
 
     //create
     @PostMapping("/new")
-    public String createUser(@RequestBody BaseUser baseUser){
-        return null;
+    public void createUser(@RequestBody BaseUser baseUser, HttpServletRequest request, HttpServletResponse response) {
+        userService.addUser(baseUser, request, response);
     }
 
     //read all

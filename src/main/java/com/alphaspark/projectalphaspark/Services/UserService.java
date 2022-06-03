@@ -4,6 +4,7 @@ import com.alphaspark.projectalphaspark.Entities.Users.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 public interface UserService {
@@ -16,7 +17,7 @@ public interface UserService {
 
     BaseUser getUser(Long id);
     BaseUser getUser(String username);
-    boolean addUser(BaseUser user, HttpServletRequest request, HttpServletResponse response);
+    void addUser(BaseUser user, HttpServletRequest request, HttpServletResponse response);
     boolean updateUser(BaseUser user);
     boolean deleteUser(Long id);
     boolean deleteUser(String username);

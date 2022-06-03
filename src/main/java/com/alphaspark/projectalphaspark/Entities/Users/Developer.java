@@ -13,4 +13,10 @@ public class Developer extends Employee{
 
     // TODO: 6/1/22 Add note via interface 'notable'
 
+    public Developer() {
+    }
+
+    public Developer(String userName, String password) {
+        super(userName, password);
+    }
 }

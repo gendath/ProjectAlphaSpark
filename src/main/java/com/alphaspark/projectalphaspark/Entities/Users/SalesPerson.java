@@ -10,4 +10,10 @@ public class SalesPerson extends Employee{
 
 // TODO: 6/1/22 Pay structure, commission tracking, sales notes
 
+    public SalesPerson() {
+    }
+
+    public SalesPerson(String userName, String password) {
+        super(userName, password);
+    }
 }

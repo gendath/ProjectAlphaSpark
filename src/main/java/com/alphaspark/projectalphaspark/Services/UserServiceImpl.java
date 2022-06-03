@@ -3,6 +3,8 @@ package com.alphaspark.projectalphaspark.Services;
 import com.alphaspark.projectalphaspark.Daos.UserDao;
 import com.alphaspark.projectalphaspark.Entities.Users.*;
 import com.alphaspark.projectalphaspark.Enums.Authority;
+import org.apache.catalina.User;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,24 +54,34 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public BaseUser getUser(String username) {
-        return userDao.findUserByUserNameIgnoreCase(username).orElse(null);
+        return userDao.findByUserNameIgnoreCase(username).orElse(null);
     }
 
     @Override
-    public boolean addUser(BaseUser user, HttpServletRequest request, HttpServletResponse response) {
+    public void addUser(BaseUser user, HttpServletRequest request, HttpServletResponse response) {
         PrintWriter writer;
         try {
             writer = response.getWriter();
+            if (writer == null) throw new IOException();
         } catch (IOException e) {
             writer = new PrintWriter(System.out);
         }
-        if (userDao.findUserByUserNameIgnoreCase(user.getUserName()).isPresent()){
-            writer.println("User with this name already exists!");
-            return false;
+        if (userDao.findByUserNameIgnoreCase(user.getUserName()).isPresent()){
+            //writer.println("User with this name already exists!");
+            try {
+                response.sendError(304);
+            } catch (IOException e) {
+                response.setStatus(304);
+            }
         }
-        logIn(userDao.save(user), request, response);
-        writer.printf("User %s created successfully \n", user.getUserName());
-        return true;
+//        logIn(userDao.save(user), request, response);
+//        writer.printf("User %s created successfully \n", user.getUserName());
+        response.setStatus(201);
+        JSONObject json = new JSONObject();
+        json.put("status", "success");
+        json.put("message", String.format("User %s created successfully", user.getUserName()));
+        json.put("user", user);
+        writer.println(json.toString());
     }
 
     @Override
@@ -88,7 +100,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean deleteUser(String username) {
-        var deleteUser = userDao.findUserByUserNameIgnoreCase(username);
+        var deleteUser = userDao.findByUserNameIgnoreCase(username);
 
         if (deleteUser.isEmpty()) return false;
 
@@ -99,7 +111,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public BaseUser logIn(BaseUser user, HttpServletRequest request, HttpServletResponse response) {
         logOut(request);
-        var userObj = userDao.findUserByUserNameIgnoreCaseAndPassword(user.getUserName(), user.getPassword());
+        var userObj = userDao.findByUserNameIgnoreCaseAndPassword(user.getUserName(), user.getPassword());
 
         if (userObj.isEmpty()) return null;
 

@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserDao extends JpaRepository<BaseUser, Long> {
-    Optional<BaseUser> findUserByUserNameIgnoreCase(String username);
-    Optional<BaseUser> findUserByUserNameIgnoreCaseAndPassword(String username, String password);
-    Long deleteUserByUserNameIgnoreCase(String username);
+    Optional<BaseUser> findByUserNameIgnoreCase(String username);
+    Optional<BaseUser> findByUserNameIgnoreCaseAndPassword(String username, String password);
+    Long deleteBaseUserByUserNameIgnoreCase(String username);
     List<Client> findClientBy();
     List<Employee> findEmployeeBy();
     List<Developer> findDeveloperBy();
